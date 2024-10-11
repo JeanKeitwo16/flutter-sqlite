@@ -19,7 +19,7 @@ class PessoaDAO {
     final db = await _dbHelper.database;
     await db.delete('pessoa', where: 'id = ?', whereArgs: [pessoa.id]);
   }
-  Future<List<Pessoa>> selectPessoa(Pessoa pessoa) async{
+  Future<List<Pessoa>> selectPessoa() async{
     final db = await _dbHelper.database;
     final List<Map<String, dynamic>> tipoJSON = await db.query('pessoa');
     return List.generate(tipoJSON.length, (i){
